@@ -15,6 +15,8 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
+        public static final int activity_new_rt_to_lt=0x7f040006;
+        public static final int activity_old_rt_to_lt=0x7f040007;
     }
     public static final class animator {
         public static final int animation_card_click=0x7f050000;
@@ -870,10 +872,11 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f070002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f080009;
+        public static final int abc_search_url_text_holo=0x7f08000a;
         public static final int abc_search_url_text_normal=0x7f080000;
         public static final int abc_search_url_text_pressed=0x7f080002;
         public static final int abc_search_url_text_selected=0x7f080001;
+        public static final int activity_background=0x7f080009;
         public static final int card_background=0x7f080006;
         public static final int card_shadow=0x7f080007;
         public static final int card_subtitle=0x7f080008;
@@ -1112,6 +1115,8 @@ containing a value of this type.
         public static final int list_item_bg_pressed=0x7f020063;
         public static final int list_item_bg_selected=0x7f020064;
         public static final int list_selector=0x7f020065;
+        public static final int popup_menu_item=0x7f020066;
+        public static final int popup_menu_selector=0x7f020067;
     }
     public static final class id {
         public static final int action_bar=0x7f06001c;
@@ -1240,11 +1245,12 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
-        public static final int dialog_loading=0x7f030019;
-        public static final int drawer_list_item=0x7f03001a;
-        public static final int fragment_shop=0x7f03001b;
-        public static final int list_item_card_shoplist=0x7f03001c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
+        public static final int activity_shop_category=0x7f030019;
+        public static final int dialog_loading=0x7f03001a;
+        public static final int drawer_list_item=0x7f03001b;
+        public static final int fragment_shop=0x7f03001c;
+        public static final int list_item_card_shoplist=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
     }
     public static final class menu {
         public static final int main=0x7f0e0000;
@@ -1305,6 +1311,8 @@ containing a value of this type.
         public static final int dummy_shop_name=0x7f0b0017;
         public static final int loading=0x7f0b0014;
         public static final int shop_search_google=0x7f0b0012;
+        /**  Popup menu items on shop list 
+         */
         public static final int shop_show_onMap=0x7f0b0011;
         public static final int shop_talk_to_shopKeeper=0x7f0b0013;
     }

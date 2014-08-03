@@ -105,8 +105,9 @@ public class Shop_Card_Adapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
 				
-				//Create the menu from the menu layout
+				//Create the menu from the menu layout		
 				PopupMenu optionsMenu = new PopupMenu(context, btnOptions);
+				
 				optionsMenu.getMenuInflater().inflate(R.menu.options_click_shop_list, optionsMenu.getMenu());
 				optionsMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 				

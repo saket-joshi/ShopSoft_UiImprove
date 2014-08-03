@@ -20,13 +20,19 @@ import com.syntaxsofts.uiimprove.connectivity.AsyncTaskCompleteListener;
 import com.syntaxsofts.uiimprove.connectivity.GetAllShops;
 import com.syntaxsofts.uiimprove.model.Shop_Card_Item;
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -34,6 +40,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 // Implements the asynctask complete listener so that the task is really done asyncly
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class ShopFragment extends Fragment implements AsyncTaskCompleteListener<String> {
 	
 	// Context for the current fragment
@@ -80,10 +87,37 @@ public class ShopFragment extends Fragment implements AsyncTaskCompleteListener<
 		}
 		
 		@Override
-		public void onItemClick(AdapterView<?> adapter, View view, int position,
+		public void onItemClick(AdapterView<?> adapter, final View view, int position,
 				long id) {
-			Toast.makeText(this.context, String.valueOf(position), Toast.LENGTH_SHORT).show();
-			view.startAnimation(AnimationUtils.loadAnimation(rootContext, R.animator.animation_card_click));
+			//Toast.makeText(this.context, String.valueOf(position), Toast.LENGTH_SHORT).show();
+			Animation buttonEmbossAnimation = AnimationUtils.loadAnimation(rootContext, R.animator.animation_card_click);
+			buttonEmbossAnimation.setAnimationListener(new AnimationListener() {
+				
+				@Override
+				public void onAnimationStart(Animation anim) {
+					
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animation anim) {
+					
+				}
+				
+				@Override
+				public void onAnimationEnd(Animation anim) {
+					
+					Intent shopCategoryIntent = new Intent(context.getApplicationContext(), ShopCategoryActivity.class);			
+					if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+						Bundle bndleAnimation = ActivityOptions.makeCustomAnimation(context.getApplicationContext(), 
+								R.anim.activity_new_rt_to_lt, R.anim.activity_old_rt_to_lt).toBundle();
+						startActivity(shopCategoryIntent, bndleAnimation);
+					}
+					else
+						startActivity(shopCategoryIntent);
+					
+				}
+			});
+			view.startAnimation(buttonEmbossAnimation);
 			
 			/*
 			 * Next what to do: Now whenever a user clicks on the card, it should open a new activity
